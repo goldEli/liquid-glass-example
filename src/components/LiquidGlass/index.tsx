@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GlassContainer } from "./GlassContainer";
 
 // Generate shader-based displacement map using shaderUtils
@@ -39,14 +39,13 @@ export function LiquidGlass({
 
   // Use external mouse position if provided, otherwise use internal
   const globalMousePos = {
-    x:0,
-    y:0
+    x: 0,
+    y: 0,
   };
   const mouseOffset = {
-    x:0,
-    y:0
+    x: 0,
+    y: 0,
   };
-
 
   // Update glass size whenever component mounts or window resizes
   useEffect(() => {
@@ -62,7 +61,6 @@ export function LiquidGlass({
     return () => window.removeEventListener("resize", updateGlassSize);
   }, []);
 
-
   const baseStyle = {
     ...style,
     // transform: transformStyle,
@@ -75,35 +73,12 @@ export function LiquidGlass({
     left: baseStyle.left || "50%",
   };
 
+
   return (
     <>
-      {/* Over light effect */}
-      <div
-        className={`bg-black transition-all duration-150 ease-in-out pointer-events-none ${
-          overLight ? "opacity-20" : "opacity-0"
-        }`}
-        style={{
-          ...positionStyles,
-          height: glassSize.height,
-          width: glassSize.width,
-          borderRadius: `${cornerRadius}px`,
-          transform: baseStyle.transform,
-          transition: baseStyle.transition,
-        }}
-      />
-      <div
-        className={`bg-black transition-all duration-150 ease-in-out pointer-events-none mix-blend-overlay ${
-          overLight ? "opacity-100" : "opacity-0"
-        }`}
-        style={{
-          ...positionStyles,
-          height: glassSize.height,
-          width: glassSize.width,
-          borderRadius: `${cornerRadius}px`,
-          transform: baseStyle.transform,
-          transition: baseStyle.transition,
-        }}
-      />
+    
+
+
 
       <GlassContainer
         ref={glassRef}
