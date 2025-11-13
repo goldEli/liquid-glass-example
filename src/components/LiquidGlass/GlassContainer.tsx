@@ -12,7 +12,6 @@ export const GlassContainer = forwardRef<
     saturation?: number;
     aberrationIntensity?: number;
     mouseOffset?: { x: number; y: number };
-    overLight?: boolean;
     cornerRadius?: number;
     padding?: string;
     glassSize?: { width: number; height: number };
@@ -28,7 +27,6 @@ export const GlassContainer = forwardRef<
       blurAmount = 12,
       saturation = 180,
       aberrationIntensity = 2,
-      overLight = false,
       cornerRadius = 999,
       padding = "24px 32px",
       glassSize = { width: 270, height: 69 },
@@ -46,12 +44,9 @@ export const GlassContainer = forwardRef<
       }
     }, []);
 
-
     const backdropStyle = {
       filter: isFirefox ? null : `url(#${filterId})`,
-      backdropFilter: `blur(${
-        (overLight ? 12 : 4) + blurAmount * 32
-      }px) saturate(${saturation}%)`,
+      backdropFilter: `blur(${4 + blurAmount * 32}px) saturate(${saturation}%)`,
     };
 
     return (
@@ -82,9 +77,7 @@ export const GlassContainer = forwardRef<
             padding,
             overflow: "hidden",
             transition: "all 0.2s ease-in-out",
-            boxShadow: overLight
-              ? "0px 16px 70px rgba(0, 0, 0, 0.75)"
-              : "0px 12px 40px rgba(0, 0, 0, 0.25)",
+            boxShadow: "0px 12px 40px rgba(0, 0, 0, 0.25)",
           }}
         >
           {/* backdrop layer that gets wiggly */}
@@ -106,9 +99,7 @@ export const GlassContainer = forwardRef<
               position: "relative",
               zIndex: 1,
               font: "500 20px/1 system-ui",
-              textShadow: overLight
-                ? "0px 2px 12px rgba(0, 0, 0, 0)"
-                : "0px 2px 12px rgba(0, 0, 0, 0.4)",
+              textShadow: "0px 2px 12px rgba(0, 0, 0, 0.4)",
             }}
           >
             {children}

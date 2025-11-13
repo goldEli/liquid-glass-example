@@ -78,9 +78,7 @@ export default function Home() {
               blurAmount={blurAmount}
               saturation={saturation}
               aberrationIntensity={aberrationIntensity}
-              elasticity={elasticity}
               cornerRadius={cornerRadius}
-              overLight={scrollingOverBrightSection || userInfoOverLight}
               style={{
                 position: "fixed",
                 top: "25%",
@@ -122,9 +120,7 @@ export default function Home() {
             blurAmount={logoutBlurAmount}
             saturation={logoutSaturation}
             aberrationIntensity={logoutAberrationIntensity}
-            elasticity={logoutElasticity}
             cornerRadius={logoutCornerRadius}
-            overLight={scrollingOverBrightSection || logoutOverLight}
             padding="8px 16px"
             onClick={() => {
               console.log("Logged out")

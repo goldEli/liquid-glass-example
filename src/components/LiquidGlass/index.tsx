@@ -9,14 +9,11 @@ interface LiquidGlassProps {
   blurAmount?: number;
   saturation?: number;
   aberrationIntensity?: number;
-  elasticity?: number;
   cornerRadius?: number;
-  globalMousePos?: { x: number; y: number };
   mouseOffset?: { x: number; y: number };
   className?: string;
   padding?: string;
   style?: React.CSSProperties;
-  overLight?: boolean;
   onClick?: () => void;
 }
 
@@ -26,11 +23,9 @@ export function LiquidGlass({
   blurAmount = 0.0625,
   saturation = 140,
   aberrationIntensity = 2,
-  elasticity = 0.15,
   cornerRadius = 999,
   className = "",
   padding = "24px 32px",
-  overLight = false,
   style = {},
   onClick,
 }: LiquidGlassProps) {
@@ -38,10 +33,6 @@ export function LiquidGlass({
   const [glassSize, setGlassSize] = useState({ width: 270, height: 69 });
 
   // Use external mouse position if provided, otherwise use internal
-  const globalMousePos = {
-    x: 0,
-    y: 0,
-  };
   const mouseOffset = {
     x: 0,
     y: 0,
@@ -85,16 +76,13 @@ export function LiquidGlass({
         className={className}
         style={baseStyle}
         cornerRadius={cornerRadius}
-        displacementScale={
-          overLight ? displacementScale * 0.5 : displacementScale
-        }
+        displacementScale={ displacementScale }
         blurAmount={blurAmount}
         saturation={saturation}
         aberrationIntensity={aberrationIntensity}
         glassSize={glassSize}
         padding={padding}
         mouseOffset={mouseOffset}
-        overLight={overLight}
         onClick={onClick}
       >
         {children}
