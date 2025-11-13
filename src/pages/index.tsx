@@ -82,7 +82,6 @@ export default function Home() {
               cornerRadius={cornerRadius}
               mouseContainer={containerRef}
               overLight={scrollingOverBrightSection || userInfoOverLight}
-              mode={userInfoMode}
               style={{
                 position: "fixed",
                 top: "25%",
@@ -128,7 +127,6 @@ export default function Home() {
             cornerRadius={logoutCornerRadius}
             mouseContainer={containerRef}
             overLight={scrollingOverBrightSection || logoutOverLight}
-            mode={logoutMode}
             padding="8px 16px"
             onClick={() => {
               console.log("Logged out")
