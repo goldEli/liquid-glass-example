@@ -80,7 +80,6 @@ export default function Home() {
               aberrationIntensity={aberrationIntensity}
               elasticity={elasticity}
               cornerRadius={cornerRadius}
-              mouseContainer={containerRef}
               overLight={scrollingOverBrightSection || userInfoOverLight}
               style={{
                 position: "fixed",
@@ -125,7 +124,6 @@ export default function Home() {
             aberrationIntensity={logoutAberrationIntensity}
             elasticity={logoutElasticity}
             cornerRadius={logoutCornerRadius}
-            mouseContainer={containerRef}
             overLight={scrollingOverBrightSection || logoutOverLight}
             padding="8px 16px"
             onClick={() => {

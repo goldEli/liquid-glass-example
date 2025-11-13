@@ -12,7 +12,6 @@ export const GlassContainer = forwardRef<
     saturation?: number;
     aberrationIntensity?: number;
     mouseOffset?: { x: number; y: number };
-    active?: boolean;
     overLight?: boolean;
     cornerRadius?: number;
     padding?: string;
@@ -29,7 +28,6 @@ export const GlassContainer = forwardRef<
       blurAmount = 12,
       saturation = 180,
       aberrationIntensity = 2,
-      active = false,
       overLight = false,
       cornerRadius = 999,
       padding = "24px 32px",
@@ -59,7 +57,7 @@ export const GlassContainer = forwardRef<
     return (
       <div
         ref={ref}
-        className={`relative ${className} ${active ? "active" : ""} ${
+        className={`relative ${className} ${
           Boolean(onClick) ? "cursor-pointer" : ""
         }`}
         style={style}
