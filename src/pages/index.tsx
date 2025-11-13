@@ -31,7 +31,7 @@ export default function Home() {
   const [logoutMode, setLogoutMode] = useState<"standard" | "polar" | "prominent" | "shader">("standard")
 
   // Shared state
-  const [activeTab, setActiveTab] = useState<"userInfo" | "logOut">("logOut")
+  const [activeTab, setActiveTab] = useState<"userInfo" | "logOut">("userInfo")
   const containerRef = useRef<HTMLDivElement>(null)
 
   const [scroll, setScroll] = useState(0)
