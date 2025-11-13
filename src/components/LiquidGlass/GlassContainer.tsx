@@ -11,8 +11,6 @@ export const GlassContainer = forwardRef<
     blurAmount?: number;
     saturation?: number;
     aberrationIntensity?: number;
-    mouseOffset?: { x: number; y: number };
-    cornerRadius?: number;
     glassSize?: { width: number; height: number };
     onClick?: () => void;
   }>
@@ -26,7 +24,6 @@ export const GlassContainer = forwardRef<
       blurAmount = 12,
       saturation = 180,
       aberrationIntensity = 2,
-      cornerRadius = 999,
       glassSize = { width: 270, height: 69 },
       onClick,
     },
@@ -65,9 +62,8 @@ export const GlassContainer = forwardRef<
         />
 
         <div
-          className="glass"
+          className={`glass ${className}`}
           style={{
-            borderRadius: `${cornerRadius}px`,
             position: "relative",
             display: "inline-flex",
             alignItems: "center",

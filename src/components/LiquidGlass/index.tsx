@@ -12,8 +12,6 @@ interface LiquidGlassProps {
   saturation?: number;
   // 调整色差效果强度
   aberrationIntensity?: number;
-  cornerRadius?: number;
-  mouseOffset?: { x: number; y: number };
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
@@ -25,7 +23,6 @@ export function LiquidGlass({
   blurAmount = 0.0625,
   saturation = 140,
   aberrationIntensity = 2,
-  cornerRadius = 999,
   className = "",
   style = {},
   onClick,
@@ -65,24 +62,17 @@ export function LiquidGlass({
     left: baseStyle.left || "50%",
   };
 
-
   return (
-    <>
-    
-
-
-
+    <div>
       <GlassContainer
         ref={glassRef}
         className={className}
         style={baseStyle}
-        cornerRadius={cornerRadius}
-        displacementScale={ displacementScale }
+        displacementScale={displacementScale}
         blurAmount={blurAmount}
         saturation={saturation}
         aberrationIntensity={aberrationIntensity}
         glassSize={glassSize}
-        mouseOffset={mouseOffset}
         onClick={onClick}
       >
         {children}
@@ -90,11 +80,11 @@ export function LiquidGlass({
 
       {/* Border layer 1 - extracted from glass container */}
       <span
+        className={className}
         style={{
           ...positionStyles,
           height: glassSize.height,
           width: glassSize.width,
-          borderRadius: `${cornerRadius}px`,
           transform: baseStyle.transform,
           transition: baseStyle.transition,
           pointerEvents: "none",
@@ -123,11 +113,11 @@ export function LiquidGlass({
 
       {/* Border layer 2 - duplicate with mix-blend-overlay */}
       <span
+        className={className}
         style={{
           ...positionStyles,
           height: glassSize.height,
           width: glassSize.width,
-          borderRadius: `${cornerRadius}px`,
           transform: baseStyle.transform,
           transition: baseStyle.transition,
           pointerEvents: "none",
@@ -154,6 +144,6 @@ export function LiquidGlass({
       />
 
       {/* Hover effects */}
-    </>
+    </div>
   );
 }
