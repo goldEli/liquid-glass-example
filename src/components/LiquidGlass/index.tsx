@@ -2,17 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import { GlassContainer } from "./GlassContainer";
 
 // Generate shader-based displacement map using shaderUtils
-
 interface LiquidGlassProps {
   children: React.ReactNode;
+  // 控制边缘位移的强度
   displacementScale?: number;
+  // 调整背景模糊程度
   blurAmount?: number;
+  // 控制色彩饱和度
   saturation?: number;
+  // 调整色差效果强度
   aberrationIntensity?: number;
   cornerRadius?: number;
   mouseOffset?: { x: number; y: number };
   className?: string;
-  padding?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
 }
@@ -25,7 +27,6 @@ export function LiquidGlass({
   aberrationIntensity = 2,
   cornerRadius = 999,
   className = "",
-  padding = "24px 32px",
   style = {},
   onClick,
 }: LiquidGlassProps) {
@@ -81,7 +82,6 @@ export function LiquidGlass({
         saturation={saturation}
         aberrationIntensity={aberrationIntensity}
         glassSize={glassSize}
-        padding={padding}
         mouseOffset={mouseOffset}
         onClick={onClick}
       >

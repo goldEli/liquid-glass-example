@@ -13,7 +13,6 @@ export const GlassContainer = forwardRef<
     aberrationIntensity?: number;
     mouseOffset?: { x: number; y: number };
     cornerRadius?: number;
-    padding?: string;
     glassSize?: { width: number; height: number };
     onClick?: () => void;
   }>
@@ -28,7 +27,6 @@ export const GlassContainer = forwardRef<
       saturation = 180,
       aberrationIntensity = 2,
       cornerRadius = 999,
-      padding = "24px 32px",
       glassSize = { width: 270, height: 69 },
       onClick,
     },
@@ -73,8 +71,6 @@ export const GlassContainer = forwardRef<
             position: "relative",
             display: "inline-flex",
             alignItems: "center",
-            gap: "24px",
-            padding,
             overflow: "hidden",
             transition: "all 0.2s ease-in-out",
             boxShadow: "0px 12px 40px rgba(0, 0, 0, 0.25)",

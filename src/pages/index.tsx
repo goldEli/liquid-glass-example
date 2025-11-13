@@ -85,7 +85,7 @@ export default function Home() {
                 left: "40%",
               }}
             >
-              <div className="w-72 text-shadow-lg">
+              <div className="w-72 text-shadow-lg p-4">
                 <h3 className="text-xl font-semibold mb-4">User Info</h3>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
@@ -121,7 +121,6 @@ export default function Home() {
             saturation={logoutSaturation}
             aberrationIntensity={logoutAberrationIntensity}
             cornerRadius={logoutCornerRadius}
-            padding="8px 16px"
             onClick={() => {
               console.log("Logged out")
             }}
